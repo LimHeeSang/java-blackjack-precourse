@@ -5,7 +5,7 @@ import java.util.List;
 public class Cards {
 
     private static final int BLACKJACK_SIZE = 2;
-    private static final int BLACKJACK_SCORE = 21;
+    public static final int BLACKJACK_SCORE = 21;
 
     private final List<Card> cards;
 

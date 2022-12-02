@@ -17,7 +17,6 @@ class DealerTest {
     void setUp() {
         dealer = new Dealer(
                 newArrayList(new Card(Symbol.FIVE, Type.DIAMOND), new Card(Symbol.KING, Type.DIAMOND)));
-
     }
 
     @Test
@@ -42,5 +41,12 @@ class DealerTest {
                 newArrayList(new Card(Symbol.FIVE, Type.HEART), new Card(Symbol.QUEEN, Type.HEART)));
         GameStatus gameStatus = dealer.play(player);
         assertThat(gameStatus.isDraw()).isTrue();
+    }
+
+    @Test
+    void 플레이어만_블랙잭일때_승리() {
+        Player player = new Player("pobi", 10000,
+                newArrayList(new Card(Symbol.ACE, Type.HEART), new Card(Symbol.QUEEN, Type.HEART)));
+        assertThat(dealer.play(player).isWin()).isTrue();
     }
 }

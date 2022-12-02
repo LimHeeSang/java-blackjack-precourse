@@ -25,12 +25,27 @@ public class Player {
     }
 
     public GameStatus play(Cards dealerCards) {
-        if (cards.calculateSum() > dealerCards.calculateSum()) {
+        if (cards.isBlackJack() && !dealerCards.isBlackJack()) {
             return GameStatus.WIN;
         }
-        if (cards.calculateSum() < dealerCards.calculateSum()) {
+        if (!cards.isBlackJack() && dealerCards.isBlackJack()) {
+            return GameStatus.LOSE;
+        }
+
+        if (isBiggerThan(dealerCards)) {
+            return GameStatus.WIN;
+        }
+        if (isSmallerThan(dealerCards)) {
             return GameStatus.LOSE;
         }
         return GameStatus.DRAW;
+    }
+
+    private boolean isSmallerThan(Cards dealerCards) {
+        return cards.calculateSum() < dealerCards.calculateSum();
+    }
+
+    private boolean isBiggerThan(Cards dealerCards) {
+        return cards.calculateSum() > dealerCards.calculateSum();
     }
 }
