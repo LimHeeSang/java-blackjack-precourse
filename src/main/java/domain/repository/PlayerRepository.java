@@ -5,7 +5,6 @@ import domain.user.Player;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 public class PlayerRepository {
 
@@ -19,10 +18,6 @@ public class PlayerRepository {
     public Player save(Player player) {
         players.add(player);
         return player;
-    }
-
-    public Optional<Player> get(String name) {
-        return null;
     }
 
     public List<Player> findAll() {

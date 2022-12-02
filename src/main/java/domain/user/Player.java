@@ -23,4 +23,11 @@ public class Player {
     public void addCard(Card card) {
         cards.add(card);
     }
+
+    public GameStatus play(Cards dealerCards) {
+        if (cards.calculateSum() > dealerCards.calculateSum()) {
+            return GameStatus.WIN;
+        }
+        return null;
+    }
 }
