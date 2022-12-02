@@ -11,4 +11,8 @@ public enum GameStatus {
     public boolean isLose() {
         return this == LOSE;
     }
+
+    public boolean isDraw() {
+        return this == DRAW;
+    }
 }

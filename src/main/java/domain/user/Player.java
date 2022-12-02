@@ -31,6 +31,6 @@ public class Player {
         if (cards.calculateSum() < dealerCards.calculateSum()) {
             return GameStatus.LOSE;
         }
-        return null;
+        return GameStatus.DRAW;
     }
 }
