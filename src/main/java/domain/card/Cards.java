@@ -15,4 +15,8 @@ public class Cards {
                 .mapToInt(Card::getScore)
                 .sum();
     }
+
+    public boolean sameScore(int score) {
+        return calculateSum() == score;
+    }
 }
