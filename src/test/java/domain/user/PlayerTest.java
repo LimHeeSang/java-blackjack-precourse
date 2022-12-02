@@ -87,4 +87,17 @@ class PlayerTest {
                 new Card(Symbol.KING, Type.DIAMOND)));
         assertThat(player.play(dealerCards).isWin()).isTrue();
     }
+
+    @Test
+    void 둘다_21을_초과할때_승리() {
+        Player player = new Player("pobi", 10000, newArrayList(
+                new Card(Symbol.EIGHT, Type.HEART),
+                new Card(Symbol.QUEEN, Type.DIAMOND),
+                new Card(Symbol.FIVE, Type.DIAMOND)));
+        Cards dealerCards = new Cards(newArrayList(
+                new Card(Symbol.FIVE, Type.DIAMOND),
+                new Card(Symbol.QUEEN, Type.DIAMOND),
+                new Card(Symbol.KING, Type.DIAMOND)));
+        assertThat(player.play(dealerCards).isWin()).isTrue();
+    }
 }
