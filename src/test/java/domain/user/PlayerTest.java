@@ -58,4 +58,15 @@ class PlayerTest {
                 newArrayList(new Card(Symbol.FIVE, Type.HEART), new Card(Symbol.QUEEN, Type.HEART)));
         assertThat(player.play(dealerCards).isLose()).isTrue();
     }
+
+    @Test
+    void 플레이어의점수만_21을_초과할때_패배() {
+        Player player = new Player("pobi", 10000,
+                newArrayList(
+                        new Card(Symbol.KING, Type.HEART),
+                        new Card(Symbol.QUEEN, Type.HEART),
+                        new Card(Symbol.FIVE, Type.DIAMOND)));
+
+        assertThat(player.play(dealerCards).isLose()).isTrue();
+    }
 }

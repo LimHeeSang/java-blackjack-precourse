@@ -30,7 +30,7 @@ public class Player {
         if (isBiggerThan(dealerCards)) {
             gameStatus = GameStatus.WIN;
         }
-        if (isSmallerThan(dealerCards)) {
+        if (isSmallerThan(dealerCards) || cards.isBiggerScore(Cards.BLACKJACK_SCORE)) {
             gameStatus = GameStatus.LOSE;
         }
         if (isSameThan(dealerCards)) {
