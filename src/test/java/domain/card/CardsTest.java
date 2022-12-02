@@ -26,6 +26,11 @@ class CardsTest {
 
     @Test
     void 카드합이_주어진_숫자와_같은지() {
-        assertThat(cards.sameScore(12)).isTrue();
+        assertThat(cards.isSameScore(12)).isTrue();
+    }
+
+    @Test
+    void 카드합이_주어진_숫자보다_큰지() {
+        assertThat(cards.isBiggerScore(10)).isTrue();
     }
 }

@@ -16,7 +16,11 @@ public class Cards {
                 .sum();
     }
 
-    public boolean sameScore(int score) {
+    public boolean isSameScore(int score) {
         return calculateSum() == score;
+    }
+
+    public boolean isBiggerScore(int score) {
+        return calculateSum() > score;
     }
 }
