@@ -23,4 +23,8 @@ public class Cards {
     public boolean isBiggerScore(int score) {
         return calculateSum() > score;
     }
+
+    public boolean isSmallerScore(int score) {
+        return calculateSum() < score;
+    }
 }

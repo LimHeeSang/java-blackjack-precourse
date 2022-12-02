@@ -33,4 +33,9 @@ class CardsTest {
     void 카드합이_주어진_숫자보다_큰지() {
         assertThat(cards.isBiggerScore(10)).isTrue();
     }
+
+    @Test
+    void 카드합이_주어진_숫자보다_작은지() {
+        assertThat(cards.isSmallerScore(13)).isTrue();
+    }
 }
