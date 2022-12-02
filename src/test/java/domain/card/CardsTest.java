@@ -56,4 +56,11 @@ class CardsTest {
         cards.add(new Card(Symbol.ACE, Type.DIAMOND));
         assertThat(cards.isSameScore(21)).isTrue();
     }
+
+    @Test
+    void 스코어가11일떄_Ace추가시_1로추가() {
+        Cards cards = new Cards(newArrayList(new Card(Symbol.FIVE, Type.DIAMOND), new Card(Symbol.SIX, Type.DIAMOND)));
+        cards.add(new Card(Symbol.ACE, Type.DIAMOND));
+        assertThat(cards.isSameScore(12)).isTrue();
+    }
 }
