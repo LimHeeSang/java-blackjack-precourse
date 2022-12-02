@@ -1,4 +1,4 @@
-package domain.service;
+package domain.repository;
 
 import domain.user.Player;
 
