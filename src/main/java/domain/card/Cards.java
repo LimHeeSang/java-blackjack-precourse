@@ -27,4 +27,8 @@ public class Cards {
     public boolean isSmallerScore(int score) {
         return calculateSum() < score;
     }
+
+    public void add(Card card) {
+        cards.add(card);
+    }
 }

@@ -3,9 +3,8 @@ package domain.card;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.util.Lists.newArrayList;
 
 class CardsTest {
 
@@ -15,7 +14,7 @@ class CardsTest {
     void setUp() {
         Card clovarTwo = new Card(Symbol.TWO, Type.CLOVAR);
         Card clovarKing = new Card(Symbol.KING, Type.CLOVAR);
-        cards = new Cards(List.of(clovarTwo, clovarKing));
+        cards = new Cards(newArrayList(clovarTwo, clovarKing));
     }
 
     @Test
@@ -37,5 +36,11 @@ class CardsTest {
     @Test
     void 카드합이_주어진_숫자보다_작은지() {
         assertThat(cards.isSmallerScore(13)).isTrue();
+    }
+
+    @Test
+    void 카드한장_추가() {
+        cards.add(new Card(Symbol.FIVE, Type.DIAMOND));
+        assertThat(cards.calculateSum()).isEqualTo(17);
     }
 }
