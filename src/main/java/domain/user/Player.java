@@ -25,39 +25,25 @@ public class Player {
     }
 
     public GameStatus play(Cards dealerCards) {
-        GameStatus gameStatus = checkBlackJack(dealerCards);
-
-        if (isBiggerThan(dealerCards)) {
-            gameStatus = GameStatus.WIN;
+        if (cards.isBlackJack()) {
+            return GameStatus.BLACKJACK;
         }
-        if (isSmallerThan(dealerCards) || cards.isBiggerScore(Cards.BLACKJACK_SCORE)) {
-            gameStatus = GameStatus.LOSE;
-        }
-        if (isSameThan(dealerCards)) {
-            gameStatus = GameStatus.DRAW;
-        }
-        return gameStatus;
-    }
-
-    private GameStatus checkBlackJack(Cards dealerCards) {
-        if (cards.isBlackJack() && !dealerCards.isBlackJack()) {
+        if (isPlayerWin(dealerCards)) {
             return GameStatus.WIN;
         }
-        if (!cards.isBlackJack() && dealerCards.isBlackJack()) {
+        if (isPlayerLose(dealerCards)) {
             return GameStatus.LOSE;
         }
         return GameStatus.DRAW;
     }
 
-    private boolean isSmallerThan(Cards dealerCards) {
-        return cards.calculateSum() < dealerCards.calculateSum();
+    private boolean isPlayerWin(Cards dealerCards) {
+        return (cards.isBiggerThan(dealerCards) && !cards.isOverBlackJack())
+                || dealerCards.isOverBlackJack();
     }
 
-    private boolean isBiggerThan(Cards dealerCards) {
-        return cards.calculateSum() > dealerCards.calculateSum();
-    }
-
-    private boolean isSameThan(Cards dealerCards) {
-        return cards.calculateSum() == dealerCards.calculateSum();
+    private boolean isPlayerLose(Cards dealerCards) {
+        return (dealerCards.isBiggerThan(cards) && !dealerCards.isOverBlackJack())
+                || cards.isOverBlackJack();
     }
 }

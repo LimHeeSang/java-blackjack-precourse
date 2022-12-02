@@ -26,10 +26,6 @@ public enum Symbol {
         this.score = score;
     }
 
-    public int getScore() {
-        return score;
-    }
-
     public int getScore(int currentSum) {
         if (isAce()) {
             return calculateAceScore(currentSum);
