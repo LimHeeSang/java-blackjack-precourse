@@ -4,6 +4,9 @@ import java.util.List;
 
 public class Cards {
 
+    private static final int BLACKJACK_SIZE = 2;
+    private static final int BLACKJACK_SCORE = 21;
+
     private final List<Card> cards;
 
     public Cards(List<Card> cards) {
@@ -11,9 +14,11 @@ public class Cards {
     }
 
     public int calculateSum() {
-        return cards.stream()
-                .mapToInt(Card::getScore)
-                .sum();
+        int sum = 0;
+        for (Card card : cards) {
+            sum += card.getScore(sum);
+        }
+        return sum;
     }
 
     public boolean isSameScore(int score) {
@@ -30,5 +35,9 @@ public class Cards {
 
     public void add(Card card) {
         cards.add(card);
+    }
+
+    public boolean isBlackJack() {
+        return cards.size() == BLACKJACK_SIZE && calculateSum() == BLACKJACK_SCORE;
     }
 }

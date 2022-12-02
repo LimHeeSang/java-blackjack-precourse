@@ -3,6 +3,8 @@ package domain.card;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 
@@ -42,5 +44,11 @@ class CardsTest {
     void 카드한장_추가() {
         cards.add(new Card(Symbol.FIVE, Type.DIAMOND));
         assertThat(cards.calculateSum()).isEqualTo(17);
+    }
+
+    @Test
+    void 블랙잭인지_확인() {
+        Cards cards = new Cards(List.of(new Card(Symbol.ACE, Type.DIAMOND), new Card(Symbol.KING, Type.DIAMOND)));
+        assertThat(cards.isBlackJack()).isTrue();
     }
 }

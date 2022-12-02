@@ -15,8 +15,8 @@ public class Card {
         this.type = type;
     }
 
-    public int getScore() {
-        return symbol.getScore();
+    public int getScore(int sum) {
+        return symbol.getScore(sum);
     }
 
     @Override
