@@ -27,4 +27,12 @@ class DealerTest {
         GameStatus gameStatus = dealer.play(player);
         assertThat(gameStatus.isWin()).isTrue();
     }
+
+    @Test
+    void 플레이어와_비교시_플레이어패배() {
+        Player player = new Player("pobi", 10000,
+                newArrayList(new Card(Symbol.TWO, Type.HEART), new Card(Symbol.KING, Type.HEART)));
+        GameStatus gameStatus = dealer.play(player);
+        assertThat(gameStatus.isLose()).isTrue();
+    }
 }

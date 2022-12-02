@@ -28,6 +28,9 @@ public class Player {
         if (cards.calculateSum() > dealerCards.calculateSum()) {
             return GameStatus.WIN;
         }
+        if (cards.calculateSum() < dealerCards.calculateSum()) {
+            return GameStatus.LOSE;
+        }
         return null;
     }
 }
