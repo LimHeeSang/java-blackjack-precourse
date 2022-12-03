@@ -5,6 +5,8 @@ import domain.card.Cards;
 
 import java.util.List;
 
+import static domain.user.GameResultDto.GameResult;
+
 /**
  * 게임 참여자를 의미하는 객체
  */
@@ -45,5 +47,9 @@ public class Player {
     private boolean isPlayerLose(Cards dealerCards) {
         return (dealerCards.isBiggerThan(cards) && !dealerCards.isOverBlackJack())
                 || cards.isOverBlackJack();
+    }
+
+    public GameResult toGameResult(GameStatus gameStatus) {
+        return new GameResult(name, gameStatus.calculatePrice(bettingMoney));
     }
 }

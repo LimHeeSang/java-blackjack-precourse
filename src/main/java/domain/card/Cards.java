@@ -25,10 +25,6 @@ public class Cards {
         return this.calculateSum() > cards.calculateSum();
     }
 
-    public boolean isSmallerThan(Cards cards) {
-        return this.calculateSum() < cards.calculateSum();
-    }
-
     public boolean isOverBlackJack() {
         return this.calculateSum() > BLACKJACK_SCORE;
     }
@@ -51,9 +47,5 @@ public class Cards {
 
     public boolean isBlackJack() {
         return cards.size() == BLACKJACK_SIZE && calculateSum() == BLACKJACK_SCORE;
-    }
-
-    public boolean isSameThan(Cards cards) {
-        return this.calculateSum() == cards.calculateSum();
     }
 }
